@@ -16,7 +16,7 @@ static const int topbar = 1;            /* 0 means bottom bar */
 static const int focusonwheel = 0;
 
 static const char *fonts[] = { "Sarasa Mono SC Nerd:size=8", "JoyPixels:pixelsize=8:antialias=true:autohint=true"  };
-static const char dmenufont[]       = "SauceCodePro Nerd Font Mono:size=16";
+static const char dmenufont[]       = "Sarasa Mono SC Nerd:size=40";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -64,16 +64,16 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact = 0.7;  /* factor of master area size [0.05..0.95] */
+static const float mfact = 0.6;  /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;     /* number of clients in master area */
 static const int nmaxmaster = 2;        /* maximum number of clients allowed in master area */
 static const int resizehints = 0; /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{"[]=", tile}, /* first entry is default */
-	// {"><>", NULL}, /* no layout function means floating behavior */
-	{"[M]", monocle},
+	{ "Tile",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
 };
 
 /* key definitions */
@@ -165,6 +165,7 @@ static Key keys[] = {
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ClkLtSymbol, 0, Button1, setlayout, {0}},
+	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	//{ClkLtSymbol, 0, Button3, setlayout, {.v = &layouts[1]}},
 	//{ClkWinTitle, 0, Button2, zoom, {0}},
 	//{ClkStatusText, 0, Button2, spawn, {.v = termcmd}},

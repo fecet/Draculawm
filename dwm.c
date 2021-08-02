@@ -2145,6 +2145,9 @@ togglefloating(const Arg *arg)
 	arrange(selmon);
 }
 
+
+
+
 void
 togglefullscr(const Arg *arg)
 {
