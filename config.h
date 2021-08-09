@@ -16,7 +16,7 @@ static const int topbar = 1;            /* 0 means bottom bar */
 static const int focusonwheel = 0;
 
 static const char *fonts[] = { "Sarasa Mono SC Nerd:size=8", "JoyPixels:pixelsize=8:antialias=true:autohint=true"  };
-static const char dmenufont[]       = "Sarasa Mono SC Nerd:size=40";
+static const char dmenufont[]       = "Sarasa Mono SC Nerd:size=20";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -101,7 +101,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", "--proxy-server=127.0.0.1:7890", NULL };
 static const char *clipmenu[]  = { "clipmenu", NULL };
-static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
+static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
+//static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
 static const char *screenshotcmd[] = { "deepin-screen-recorder", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
@@ -111,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
 	{ MODKEY,              XK_v,                    spawn,          {.v = clipmenu } },
+	{ MODKEY,              XK_e,                    spawn,          {.v = rangercmd } },
 	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },
 //	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } },
 //	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },
