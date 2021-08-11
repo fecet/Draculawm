@@ -99,11 +99,11 @@ static const char *rofiquitcmd[] = {"rofi", "-show", "p", "-modi", "p:rofi-power
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "google-chrome-stable", "--proxy-server=127.0.0.1:7890", NULL };
+static const char *browsercmd[]  = { "microsoft-edge-beta", "--proxy-server=127.0.0.1:7890", NULL };
 static const char *clipmenu[]  = { "clipmenu", NULL };
 static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 //static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
-static const char *screenshotcmd[] = { "deepin-screen-recorder", NULL };
+static const char *screenshotcmd[] = { "xfce4-screenshooter", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
