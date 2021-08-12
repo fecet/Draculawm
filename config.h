@@ -61,6 +61,12 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Steam",    NULL,       "Friends List", 0,            1,           -1 },
 	{ "Steam",    NULL,       "Steam - News", 0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Android Emulator", NULL,       NULL,       0,            1,           -1 },
+	{ "Emulator", NULL,       NULL,       0,            1,           -1 },
+	{ "quemu-system-i386", NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "uTools",   NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -108,7 +114,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
 static Key keys[] = {
-	{ Mod1Mask,            XK_space,                spawn,          {.v = dmenucmd } },
+//	{ Mod1Mask,            XK_space,                spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
 	{ MODKEY,              XK_v,                    spawn,          {.v = clipmenu } },
