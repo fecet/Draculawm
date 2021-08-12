@@ -1075,16 +1075,16 @@ focusstack(const Arg *arg)
 
 void
 focuswin(const Arg* arg){
-  int iwin = arg->i;
-  if (iwin < 0) return;
-  Client* c = NULL;
-  for(c = selmon->clients; c && (iwin || !CANFOCUS(c)) ; c = c->next){
-    if(CANFOCUS(c)) --iwin;
-  };
-  if(c) {
-    focus(c);
-    restack(selmon);
-  }
+	int iwin = arg->i;
+	if (iwin < 0) return;
+	Client* c = NULL;
+	for(c = selmon->clients; c && (iwin || !CANFOCUS(c)) ; c = c->next){
+		if(CANFOCUS(c)) --iwin;
+	};
+	if(c) {
+		focus(c);
+		restack(selmon);
+	}
 }
 
 Atom
@@ -2132,8 +2132,8 @@ togglefloating(const Arg *arg)
 	if (selmon->sel->isfloating)
 		/* restore last known float dimensions */
 		resize(selmon->sel, selmon->sel->sfx, selmon->sel->sfy,
-			selmon->sel->sfw - 2 * (borderpx - selmon->sel->bw),
-			selmon->sel->sfh - 2 * (borderpx - selmon->sel->bw),
+			selmon->sel->sfw/* - 2 * (borderpx - selmon->sel->bw)*/,
+			selmon->sel->sfh/* - 2 * (borderpx - selmon->sel->bw)*/,
 			borderpx, 0);
 	else {
 		/* save last known float dimensions */
@@ -2286,9 +2286,6 @@ updatebars(void)
 void
 updatebarpos(Monitor *m)
 {
-	Client *c;
-	int nvis = 0;
-
 	m->wy = m->my;
 	m->wh = m->mh;
 	if (m->showbar) {
@@ -2296,13 +2293,8 @@ updatebarpos(Monitor *m)
 		m->by = m->topbar ? m->wy : m->wy + m->wh;
 		if ( m->topbar )
 			m->wy += bh;
-	} else {
+	} else
 		m->by = -bh;
-	}
-
-	for(c = m->clients; c; c = c->next) {
-		if(CANFOCUS(c)) ++nvis;
-	}
 }
 
 void
