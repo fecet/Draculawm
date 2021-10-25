@@ -51,7 +51,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = { "", "", "", "", " ", "五", "六", "\uf537", "\uf684" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -70,7 +70,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact = 0.6;  /* factor of master area size [0.05..0.95] */
+static const float mfact = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;     /* number of clients in master area */
 static const int nmaxmaster = 2;        /* maximum number of clients allowed in master area */
 static const int resizehints = 0; /* 1 means respect size hints in tiled resizals */
@@ -104,10 +104,12 @@ static const char *rofiquitcmd[] = {"rofi", "-show", "p", "-modi", "p:rofi-power
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+// static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "microsoft-edge-beta", "--proxy-server=127.0.0.1:7890", NULL };
 static const char *clipmenu[]  = { "clipmenu", NULL };
-static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
+static const char *rangercmd[]  = { "alacritty", "-e", "ranger", NULL };
+static const char *editorcmd[]  = { "neovide", "--maximized", NULL };
 //static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
 static const char *screenshotcmd[] = { "xfce4-screenshooter", NULL };
 static const char scratchpadname[] = "scratchpad";
@@ -120,6 +122,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_v,                    spawn,          {.v = clipmenu } },
 	{ MODKEY,              XK_e,                    spawn,          {.v = rangercmd } },
 	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },
+	{ MODKEY,              XK_i,                    spawn,          {.v = editorcmd } },
 //	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } },
 //	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },
 	{ MODKEY,              XK_j,                    focusstack,     {.i = +1 } },
