@@ -51,7 +51,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", " ", "五", "六", "\uf537", "\uf684" };
+static const char *tags[] = { "", "", "", "", " ", "", "", "\uf537", "\uf684" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -85,7 +85,8 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY, TAG) \
-{MODKEY, KEY, view, {.ui = 1 << TAG}}, {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}}, \
+{MODKEY, KEY, view, {.ui = 1 << TAG}}, \
+{MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}}, \
 {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},
 //{MODKEY | Mod1Mask, KEY, toggletag, {.ui = 1 << TAG}},
 
@@ -106,14 +107,17 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 // static const char *termcmd[]  = { "st", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *browsercmd[]  = { "microsoft-edge-beta", "--proxy-server=127.0.0.1:7890", NULL };
-static const char *clipmenu[]  = { "clipmenu", NULL };
+static const char *browsercmd[]  = { "microsoft-edge-beta", "--proxy-server=127.0.0.1:7890", "--force-device-scale-factor=1.7", NULL };
+static const char *clipmenu[]  = { "clipmenu", NULL };                                        //
 static const char *rangercmd[]  = { "alacritty", "-e", "ranger", NULL };
 static const char *editorcmd[]  = { "neovide", "--maximized", NULL };
 //static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
 static const char *screenshotcmd[] = { "xfce4-screenshooter", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
+
+static const char *nextmusic[] = { "playerctl", "next", NULL };
+static const char *prevmusic[] = { "playerctl", "previous", NULL };
 
 static Key keys[] = {
 //	{ Mod1Mask,            XK_space,                spawn,          {.v = dmenucmd } },
@@ -123,6 +127,8 @@ static Key keys[] = {
 	{ MODKEY,              XK_e,                    spawn,          {.v = rangercmd } },
 	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },
 	{ MODKEY,              XK_i,                    spawn,          {.v = editorcmd } },
+	{ MODKEY|ControlMask,  XK_j,                    spawn,          {.v = nextmusic } },
+	{ MODKEY|ControlMask,  XK_k,                    spawn,          {.v = prevmusic } },
 	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },
 	{ MODKEY,              XK_j,                    focusstack,     {.i = +1 } },
