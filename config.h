@@ -110,7 +110,8 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "microsoft-edge-beta", "--proxy-server=127.0.0.1:7890", "--force-device-scale-factor=1.7", NULL };
 static const char *clipmenu[]  = { "clipmenu", NULL };                                        //
 static const char *rangercmd[]  = { "alacritty", "-e", "ranger", NULL };
-static const char *editorcmd[]  = { "neovide", "--maximized", NULL };
+// static const char *editorcmd[]  = { "neovide", "--maximized", NULL };
+static const char *editorcmd[]  = { "alacritty", "-e", "nvim", NULL };
 //static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
 static const char *screenshotcmd[] = { "xfce4-screenshooter", NULL };
 static const char scratchpadname[] = "scratchpad";
