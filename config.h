@@ -147,9 +147,10 @@ static const char *dmenucmd[] = {
     "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
 // static const char *termcmd[]  = { "st", NULL };
 static const char *termcmd[] = {"alacritty", NULL};
-static const char *browsercmd[] = {"microsoft-edge-beta",
-                                   "--proxy-server=127.0.0.1:7890",
-                                   "--force-device-scale-factor=1.7", NULL};
+static const char *browsercmd[] = {"google-chrome-stable",
+                                   /* "--proxy-server=127.0.0.1:7890", */
+                                   /* "--force-device-scale-factor=1.7",  */
+                                   NULL};
 static const char *clipmenu[] = {"clipmenu", NULL}; //
 static const char *rangercmd[] = {"alacritty", "-e", "ranger", NULL};
 // static const char *editorcmd[]  = { "neovide", "--maximized", NULL };
@@ -165,7 +166,7 @@ static const char *prevmusic[] = {"playerctl", "previous", NULL};
 
 static Key keys[] = {
     //	{ Mod1Mask,            XK_space,                spawn,          {.v =
-    //dmenucmd } },
+    // dmenucmd } },
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_c, spawn, {.v = browsercmd}},
     {MODKEY, XK_v, spawn, {.v = clipmenu}},
