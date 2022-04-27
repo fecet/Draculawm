@@ -153,8 +153,9 @@ static const char *browsercmd[] = {"google-chrome-stable",
                                    NULL};
 static const char *clipmenu[] = {"clipmenu", NULL}; //
 static const char *rangercmd[] = {"alacritty", "-e", "ranger", NULL};
-// static const char *editorcmd[]  = { "neovide", "--maximized", NULL };
-static const char *editorcmd[] = {"alacritty", "-e", "nvim", NULL};
+/* static const char *editorcmd[] = {"neovide", "--maximized", "--", "\"+let g:python3_host_prog='/home/rok/.conda/envs/tq/bin/python'\"", NULL}; */
+/* static const char *editorcmd[] = {"alacritty", "-e", "neovide", NULL}; */
+static const char *editorcmd[] = {"zsh", "--login", "/home/rok/scripts/start_neovide.sh", NULL};
 // static const char *transcmd[]  = {"home/rok/scripts/trans.sh", NULL };
 static const char *screenshotcmd[] = {"xfce4-screenshooter", NULL};
 static const char scratchpadname[] = "scratchpad";
